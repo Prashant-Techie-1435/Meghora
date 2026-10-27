@@ -1,0 +1,36 @@
+services:
+  # 1. Backend Web Service (Node.js + Express + Mongoose)
+  - type: web
+    name: meghora-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false # Configured privately in Render dashboard with MongoDB Atlas connection string
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: meghora-frontend
+          property: host
+
+  # 2. Frontend Static Site (React + Vite)
+  - type: static
+    name: meghora-frontend
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: meghora-backend
+          property: url

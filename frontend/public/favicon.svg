@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="cloudGrad" x1="16" y1="20" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="36" y1="8" x2="56" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE047"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Sun -->
+  <circle cx="44" cy="20" r="12" fill="url(#sunGrad)" filter="url(#glow)"/>
+  <!-- Cloud -->
+  <path d="M46 44H20C14.477 44 10 39.523 10 34C10 28.84 13.9 24.6 18.9 24.07C20.65 17.15 26.96 12 34.5 12C43.06 12 50.15 18.42 50.95 26.78C55.45 27.65 58.75 31.57 58.75 36.25C58.75 41.5 54.5 44 49 44H46Z" fill="#0B1325" opacity="0.4"/>
+  <path d="M44 42H18C13.03 42 9 37.97 9 33C9 28.36 12.51 24.54 17.01 24.06C18.59 17.83 24.26 13.2 31.05 13.2C38.75 13.2 45.13 18.98 45.85 26.5C49.9 27.28 53 30.81 53 35.02C53 39.72 49.18 42 44 42Z" fill="url(#cloudGrad)"/>
+  <!-- Rain droplet accent -->
+  <path d="M24 48L21 54C20.5 55 22 56 23 55L26 49C26.5 48 24.5 47 24 48Z" fill="#38BDF8"/>
+  <path d="M34 48L31 54C30.5 55 32 56 33 55L36 49C36.5 48 34.5 47 34 48Z" fill="#38BDF8"/>
+</svg>
